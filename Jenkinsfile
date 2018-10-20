@@ -10,6 +10,7 @@ node {
     }
 
     stage('build') {
+        sh 'make init'
         sh 'make build'
     }
 }
