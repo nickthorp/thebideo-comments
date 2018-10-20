@@ -1,10 +1,8 @@
 init:
+	python3 -m virtualenv env
+	source env/bin/activate
+	which python3
 	pip install -r requirements.txt
 
-#test:
-    #py.test tests
-
 build:
-	python package.py
-
-#.PHONY: init test
+	python3 package.py
