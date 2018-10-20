@@ -1,9 +1,10 @@
 init:
-    pip install -r requirements.txt
+	pip install -r requirements.txt
 
-test:
+#test:
     #py.test tests
 
 build:
-    python package.py
+	python package.py
+
 #.PHONY: init test
