@@ -1,6 +1,6 @@
 init:
 	python3 -m virtualenv env
-	source env/bin/activate
+	. env/bin/activate
 	which python3
 	pip install -r requirements.txt
 
