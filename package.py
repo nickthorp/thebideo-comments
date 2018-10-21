@@ -10,7 +10,7 @@ builder_parameters = {
             "version": '1.0',
             "source": directory(path=project_dir),
             "profile": 'centos7',
-            "python-version": '3.6.6',
+            "python_version": '3.6.6'
         }
 
 configuration = Configuration(builder_parameters)
