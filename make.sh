@@ -1,6 +1,7 @@
 #!/bin/bash
 
 TASK=$1
+ACTIVATE_DIR='venv/bin/activate'
 
 if [ -z ${TASK} ]; then
   echo "Usage: make <init|build>"
@@ -9,13 +10,16 @@ fi
 
 init() {
   python3 -m virtualenv venv
-  . venv/bin/activate
+  . ${ACTIVATE_DIR}
   which python3
   pip install vdist
 }
 
 build() {
-  . venv/bin/activate
+  . ${ACTIVATE_DIR}
+  whoami
+  who am i
+  docker ps -a
   python3 package.py
 }
 

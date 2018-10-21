@@ -9,7 +9,8 @@ builder_parameters = {
             "app": 'thebideo-comments',
             "version": '1.0',
             "source": directory(path=project_dir),
-            "profile": 'centos7'
+            "profile": 'centos7',
+            "python-version": '3.6.6',
         }
 
 configuration = Configuration(builder_parameters)
