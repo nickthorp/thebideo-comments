@@ -11,16 +11,13 @@ fi
 init() {
   python3 -m virtualenv venv
   . ${ACTIVATE_DIR}
-  which python3
   pip install vdist
 }
 
 build() {
   . ${ACTIVATE_DIR}
-  whoami
-  who am i
   docker ps -a
-  python3 package.py
+  python3 packager2.py
 }
 
 case "$TASK" in
