@@ -10,7 +10,8 @@ builder_parameters = {
             "version": '1.0',
             "source": directory(path=project_dir),
             "profile": 'centos7',
-            "python_version": '3.6.6'
+            "python_version": '3.6.6',
+            "output_folder": '/tmp/vdist/'
         }
 
 configuration = Configuration(builder_parameters)

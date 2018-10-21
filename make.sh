@@ -17,7 +17,7 @@ init() {
 build() {
   . ${ACTIVATE_DIR}
   docker ps -a
-  python3 packager2.py
+  python3 package.py
 }
 
 case "$TASK" in
