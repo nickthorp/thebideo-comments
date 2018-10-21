@@ -11,10 +11,11 @@ init() {
   python3 -m virtualenv venv
   . venv/bin/activate
   which python3
-  pip install -r requirements.txt
+  pip install vdist
 }
 
 build() {
+  . venv/bin/activate
   python3 package.py
 }
 
