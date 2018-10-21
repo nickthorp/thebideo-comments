@@ -14,4 +14,8 @@ node {
         sh './make.sh init'
         sh './make.sh build'
     }
+    
+    stage('Cleanup') {
+        cleanWs()
+    }
 }
