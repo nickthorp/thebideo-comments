@@ -1,16 +1,14 @@
-from vdist.builder import Builder
+import vdist.builder as builder
+from vdist.configuration import Configuration
 from vdist.source import directory
 
-builder = Builder()
+builder_parameters = {
+            "app": 'thebideo-comments',
+            "version": '1.0',
+            "source": directory(path='C:\\Users\\nthor\source\\thebideo-comments'),
+            "profile": 'centos7'
+        }
 
-builder.add_build(
-    app='thebideo-comments',
-    version='1.0',
-    source=directory(
-        path='C:\\Users\\nthor\source\\thebideo-comments'
-    ),
-    profile='centos7',
-    build_deps=['python', 'gcc'],
-)
+configuration = Configuration(builder_parameters)
 
-builder.build()
+builder.build_package(configuration)
