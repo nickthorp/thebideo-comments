@@ -9,7 +9,7 @@ builder_parameters = {
             "app": 'thebideo-comments',
             "version": '1.0',
             "source": directory(path=project_dir),
-            "profile": 'centos7',
+            "profile": 'ubuntu-trusty',
             "python_version": '3.6.6',
             "output_folder": '/tmp/vdist/'
         }
