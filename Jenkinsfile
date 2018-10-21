@@ -10,7 +10,8 @@ node {
     }
 
     stage('build') {
-        sh 'make init'
-        sh 'make build'
+        sh 'chmod 755 *.sh'
+        sh './make.sh init'
+        sh './make.sh build'
     }
 }
