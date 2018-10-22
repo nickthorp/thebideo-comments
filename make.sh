@@ -16,8 +16,7 @@ init() {
 
 build() {
   . ${ACTIVATE_DIR}
-  docker ps -a
-  python3 package.py
+  vdist batch config.ini
 }
 
 case "$TASK" in
