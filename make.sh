@@ -16,7 +16,8 @@ init() {
 
 build() {
   . ${ACTIVATE_DIR}
-  vdist batch config.ini
+  #vdist batch config.ini
+  python3 package.py
 }
 
 case "$TASK" in
