@@ -13,7 +13,8 @@ builder_parameters = {
                           branch='master'),
             "profile": 'centos7',
             "python_version": '3.6.6',
-            "output_folder": '/tmp/vdist/'
+            "requirements_path": '*/requirements.txt',
+
         }
 
 configuration = Configuration(builder_parameters)
