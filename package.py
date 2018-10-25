@@ -8,9 +8,9 @@ project_dir = os.getcwd()
 builder_parameters = {
             "app": 'thebideo-comments',
             "version": '1.0',
-#            "source": directory(path=project_dir),
-            "source": git(uri='https://github.com/nickthorp/thebideo-comments',
-                          branch='master'),
+            "source": directory(path=project_dir),
+#            "source": git(uri='https://github.com/nickthorp/thebideo-comments',
+#                          branch='master'),
             "profile": 'centos7',
             "python_version": '3.6.6',
             "requirements_path": '/requirements.txt',
