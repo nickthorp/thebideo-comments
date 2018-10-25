@@ -13,7 +13,7 @@ builder_parameters = {
                           branch='master'),
             "profile": 'centos7',
             "python_version": '3.6.6',
-            "requirements_path": '*/requirements.txt',
+            "requirements_path": '/requirements.txt',
 
         }
 
