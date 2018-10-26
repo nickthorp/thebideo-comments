@@ -4,7 +4,7 @@ from vdist.configuration import Configuration
 from vdist.source import directory
 
 app = 'thebideo-comments'
-version = '1.' + os.environ['WORKSPACE']
+version = '1.' + os.environ['BUILD_NUMBER']
 python_ver = '3.6.6'
 
 root_dir, tmp = os.path.split(os.getcwd())
