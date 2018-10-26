@@ -4,20 +4,25 @@ from vdist.configuration import Configuration
 from vdist.source import directory
 
 app = 'thebideo-comments'
-project_dir = os.getcwd()
-root_dir, tmp = os.path.split(project_dir)
+version = '1.' + os.environ['WORKSPACE']
+python_ver = '3.6.6'
+
+root_dir, tmp = os.path.split(os.getcwd())
 ln_dir = root_dir + '/' + app
-os.symlink(project_dir, ln_dir, True)
+os.symlink(os.getcwd(), ln_dir, True)
 
 builder_parameters = {
             "app": app,
-            "version": '1.0',
+            "version": version,
             "source": directory(path=ln_dir),
             "profile": 'centos7',
-            "python_version": '3.6.6',
+            "python_version": python_ver,
             "requirements_path": '/requirements.txt',
+            "output_folder": './vdist',
         }
 
 configuration = Configuration(builder_parameters)
 
 builder.build_package(configuration)
+
+os.unlink(ln_dir)

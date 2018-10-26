@@ -16,6 +16,7 @@ node {
     }
     
     stage('Cleanup') {
+        archiveArtifacts artifacts: 'vdist/*', onlyIfSuccessful: true
         cleanWs()
     }
 }
