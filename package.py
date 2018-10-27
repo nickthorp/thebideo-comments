@@ -16,7 +16,7 @@ builder_parameters = {
             "version": version,
             "source": directory(path=ln_dir),
             "profile": 'centos7',
-            "python_version": python_ver,
+            #"python_version": python_ver,
             "requirements_path": '/requirements.txt',
             "output_folder": './vdist',
             #"runtime_deps": ["libssl1.0.0","libssl-dev"],
