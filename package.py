@@ -7,10 +7,10 @@ app = 'thebideo-comments'
 version = '1.' + os.environ['BUILD_NUMBER']
 python_ver = '3.6.6'
 
-
-root_dir, tmp = os.path.split(os.getcwd())
+root_dir = os.getcwd()
+# root_dir, tmp = os.path.split(os.getcwd())
 ln_dir = root_dir + '/' + app
-#os.symlink(os.getcwd(), ln_dir, True)
+# os.symlink(os.getcwd(), ln_dir, True)
 
 builder_parameters = {
             "app": app,
