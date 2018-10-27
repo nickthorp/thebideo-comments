@@ -10,12 +10,9 @@ node {
     }
 
     stage('build') {
-        dir('build') {
-            sh 'chmod 755 *.sh'
-            sh './make.sh init'
-            sh './make.sh build'
-        }
-
+        sh 'chmod 755 *.sh'
+        sh './make.sh init'
+        sh './make.sh build'
     }
     
     stage('Cleanup') {
