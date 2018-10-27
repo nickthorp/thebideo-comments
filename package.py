@@ -7,10 +7,9 @@ app = 'thebideo-comments'
 version = '1.' + os.environ['BUILD_NUMBER']
 python_ver = '3.6.6'
 
-root_dir = os.getcwd()
-# root_dir, tmp = os.path.split(os.getcwd())
+root_dir, tmp = os.path.split(os.getcwd())
 ln_dir = root_dir + '/' + app
-# os.symlink(os.getcwd(), ln_dir, True)
+os.symlink(os.getcwd(), ln_dir, True)
 
 builder_parameters = {
             "app": app,
@@ -20,7 +19,7 @@ builder_parameters = {
             "python_version": python_ver,
             "requirements_path": '/requirements.txt',
             "output_folder": './vdist',
-            #"runtime_deps": [""],
+            "runtime_deps": ["compat-libssl10"],
         }
 
 configuration = Configuration(builder_parameters)
