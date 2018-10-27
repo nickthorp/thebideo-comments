@@ -19,7 +19,7 @@ builder_parameters = {
             "python_version": python_ver,
             "requirements_path": '/requirements.txt',
             "output_folder": './vdist',
-            "runtime_deps": ["libssl1.0.0","libssl-dev"],
+            #"runtime_deps": ["libssl1.0.0","libssl-dev"],
         }
 
 configuration = Configuration(builder_parameters)
