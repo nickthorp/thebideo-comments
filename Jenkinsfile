@@ -5,18 +5,26 @@ properties(
 );
 
 node {
-    stage('checkout') {
-        checkout scm
-    }
+    try {
+        stage('checkout') {
+            checkout scm
+        }
 
-    stage('build') {
-        sh 'chmod 755 *.sh'
-        sh './make.sh init'
-        sh './make.sh build'
-    }
-    
-    stage('Cleanup') {
-        archiveArtifacts artifacts: 'vdist/*', onlyIfSuccessful: true
-        cleanWs()
+        stage('build') {
+            sh 'chmod 755 *.sh'
+            sh './make.sh init'
+            sh './make.sh build'
+        }
+        
+        stage('Cleanup') {
+            archiveArtifacts artifacts: 'vdist/*', onlyIfSuccessful: true
+            slackNotifier(currentBuild.currentResult)
+            cleanWs()
+        }
+    } catch {
+        stage('Notify') {
+            slackNotifier(currentBuild.currentResult)
+            cleanWs()
+        }
     }
 }
