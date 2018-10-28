@@ -16,6 +16,12 @@ node {
             sh './make.sh build'
         }
         
+        stage('Install') {
+            dir('./vdist') {
+                sh "rpm -Uvh thebideo-comments-1.$BUILD_NUMBER-1.x86_64.rpm"
+            }
+        }
+
         stage('Archive') {
             archiveArtifacts artifacts: 'vdist/*', onlyIfSuccessful: true
         }
