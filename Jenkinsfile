@@ -16,12 +16,12 @@ node {
             sh './make.sh build'
         }
         
-        stage('Cleanup') {
+        stage('Archive') {
             archiveArtifacts artifacts: 'vdist/*', onlyIfSuccessful: true
-            slackNotifier(currentBuild.currentResult)
-            cleanWs()
         }
     } catch(Exception e) {
+    
+    } finally {
         stage('Notify') {
             slackNotifier(currentBuild.currentResult)
             cleanWs()
