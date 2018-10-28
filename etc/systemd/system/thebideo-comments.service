@@ -7,7 +7,7 @@ Type=simple
 User=root
 Group=root
 WorkingDirectory=/opt/thebideo-comments/
-ExecStart=/opt/thebideo-comments/comment.py
+ExecStart=/opt/thebideo-comments/bin/python3 comment.py
 StandardOutput=syslog
 StandardError=syslog
 
