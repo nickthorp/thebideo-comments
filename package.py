@@ -20,6 +20,9 @@ builder_parameters = {
             "requirements_path": '/requirements.txt',
             "output_folder": './vdist',
             "runtime_deps": ["compat-openssl10"],
+            "after_install": './package/post-install.sh',
+            "after_upgrade": './package/post-upgrade.sh',
+            "after_remove": './package/post-remove.sh'
         }
 
 configuration = Configuration(builder_parameters)

@@ -1,0 +1,15 @@
+[Unit]
+Description=The Bideo Comments Service
+After=syslog.target
+
+[Service]
+Type=simple
+User=root
+Group=root
+WorkingDirectory=/opt/thebideo-comments/
+ExecStart=/opt/thebideo-comments/comment.py
+StandardOutput=syslog
+StandardError=syslog
+
+[Install]
+WantedBy=multi-user.target

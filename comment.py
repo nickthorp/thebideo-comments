@@ -1,3 +1,5 @@
+#!/opt/thebideo-comments/bin/python3
+
 from flask import Flask, request, Response, json
 from flask_restful import Resource, Api
 import requests
