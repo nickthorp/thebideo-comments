@@ -21,7 +21,7 @@ node {
             slackNotifier(currentBuild.currentResult)
             cleanWs()
         }
-    } catch {
+    } catch(Exception e) {
         stage('Notify') {
             slackNotifier(currentBuild.currentResult)
             cleanWs()
