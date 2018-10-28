@@ -21,13 +21,13 @@ class Comment(Resource):
         if is_okay["success"]:
             r = self.mailgun(message["from"], "nickthorp20@gmail.com", message["subject"], message["text"])
             if r == "failed":
-                return Response("<a href=\"http://127.0.0.1\">Home</a><br><h1>There was a problem submitting "
+                return Response("<a href=\"https://thebideo.com\">Home</a><br><h1>There was a problem submitting "
                                 "your comment. Please try again later.</h1>",
                                 mimetype="text/html")
-            return Response("<a href=\"http://127.0.0.1\">Home</a><br><h1>Your comment has been submitted!</h1>",
+            return Response("<a href=\"https://thebideo.com\">Home</a><br><h1>Your comment has been submitted!</h1>",
                             mimetype="text/html")
         else:
-            return Response("<a href=\"http://127.0.0.1\">Home</a><br><h1>Get outta here robot!!!</h1>",
+            return Response("<a href=\"https://thebideo.com\">Home</a><br><h1>Get outta here robot!!!</h1>",
                             mimetype="text/html")
 
     @staticmethod
