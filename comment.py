@@ -3,6 +3,11 @@
 from flask import Flask, request, Response, json
 from flask_restful import Resource, Api
 import requests
+import yaml
+
+# Load up our configuration file
+with open("config.yml", 'r') as yaml_file:
+    cfg = yaml.load(yaml_file)
 
 app = Flask(__name__)
 api = Api(app)
@@ -11,31 +16,32 @@ api = Api(app)
 class Comment(Resource):
     @staticmethod
     def verify_recaptcha(recaptcha_response):
-        check_dict = {"secret": "6LfT63QUAAAAAGmXVd4HpJGquD9ODc0owB6GINei", "response": recaptcha_response}
-        r = requests.post("https://www.google.com/recaptcha/api/siteverify", data=check_dict)
+        check_dict = {"secret": cfg['recaptcha::secret'], "response": recaptcha_response}
+        r = requests.post(cfg['recaptcha::url'], data=check_dict)
         return r.text
 
     def post(self):
         message = request.form
         is_okay = json.loads(self.verify_recaptcha(message["g-recaptcha-response"]))
         if is_okay["success"]:
-            r = self.mailgun(message["from"], "nickthorp20@gmail.com", message["subject"], message["text"])
+            r = self.mailgun(message["from"], cfg['email::to'], message["subject"], message["text"])
             if r == "failed":
-                return Response("<a href=\"https://thebideo.com\">Home</a><br><h1>There was a problem submitting "
-                                "your comment. Please try again later.</h1>",
+                return Response("<a href=\"" + cfg['thebideo::url'] + "\">Home</a><br><h1>There was a problem "
+                                "submitting your comment. Please try again later.</h1>",
                                 mimetype="text/html")
-            return Response("<a href=\"https://thebideo.com\">Home</a><br><h1>Your comment has been submitted!</h1>",
+            return Response("<a href=\"" + cfg['thebideo::url'] + "\">Home</a><br><h1>Your comment has been "
+                            "submitted!</h1>",
                             mimetype="text/html")
         else:
-            return Response("<a href=\"https://thebideo.com\">Home</a><br><h1>Get outta here robot!!!</h1>",
+            return Response("<a href=\"" + cfg['thebideo::url'] + "\">Home</a><br><h1>Get outta here robot!!!</h1>",
                             mimetype="text/html")
 
     @staticmethod
     def mailgun(from_who, to_email, subject, text):
-        our_email = "comments@thebideo.com"
-        user = 'api'
-        password = '59232a7ee7c8297f71725eb03553365b-bd350f28-4af382c7'
-        url = "https://api.mailgun.net/v3/mg.thebideo.com/messages"
+        our_email = cfg['mailgun::from']
+        user = cfg['mailgun::user']
+        password = cfg['mailgun::secret']
+        url = cfg['mailgun::url']
         full_text = text + "\n\n" + from_who
         email = {"from": our_email,
                  "to": to_email,

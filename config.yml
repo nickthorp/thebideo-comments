@@ -1,0 +1,13 @@
+---
+recaptcha::secret: '6LfT63QUAAAAAGmXVd4HpJGquD9ODc0owB6GINei'
+recaptcha::url: 'https://www.google.com/recaptcha/api/siteverify'
+
+email::to: 'nickthorp20@gmail.com'
+thebideo::url: 'https://thebideo.com'
+## to test locally
+# thebideo::url: 'http://127.0.0.1'
+
+mailgun::from: 'comment@thebideo.com'
+mailgun::user: 'api'
+mailgun::secret: '59232a7ee7c8297f71725eb03553365b-bd350f28-4af382c7'
+mailgun::url: 'https://api.mailgun.net/v3/mg.thebideo.com/messages'
